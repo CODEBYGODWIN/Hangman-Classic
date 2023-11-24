@@ -8,6 +8,29 @@ import (
 	"strings"
 )
 
+func Words(word string) []string {
+
+	list := []string{}
+	CompletA := []string{}
+	CompletB := ""
+
+	for _, letter := range word {
+		list = append(list, string(letter))
+	}
+
+	for b := 0; b < len(list); b++ {
+		CompletB = CompletB + string(list[b])
+	}
+
+	for _, a := range CompletB {
+		CompletA = append(CompletA, string(a))
+	}
+
+	return CompletA
+
+}
+
+
 func SelectWord(s string) []string {
 	content, err := os.ReadFile(s)
 	if err != nil {
